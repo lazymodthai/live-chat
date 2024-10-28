@@ -10,9 +10,11 @@ interface TextFieldProps {
 const textFieldStyle: SxProps = {
   backgroundColor: "#ececec",
   width: "100%",
-  borderRadius: "20px 0 0 20px",
+  borderRadius: 80,
   fontSize: 50,
   "& .MuiOutlinedInput-root": {
+    paddingLeft: 3,
+    fontSize: 20,
     "&:hover fieldset": {
       borderColor: "transparent",
     },
@@ -40,8 +42,7 @@ function ChatTextField(props: TextFieldProps) {
   };
 
   return (
-    <Grid2 container size={12}>
-      <Grid2 size={11.5}>
+    <Grid2 container size={12} display={'flex'} flexDirection={'row'} position={'relative'}>
         <TextField
           multiline
           value={text}
@@ -52,15 +53,16 @@ function ChatTextField(props: TextFieldProps) {
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-      </Grid2>
-      <Grid2 size={0.5}>
         <Button
           onClick={handleSend}
           variant="contained"
           sx={{
+            position: 'absolute',
+            right: -10,
+            top: 0,
             height: "100%",
-            width: "100%",
-            borderRadius: "0 20px 20px 0",
+            width: "10px",
+            borderRadius: "50%",
             "&:focus": {
               outline: "none",
               border: "none",
@@ -69,7 +71,6 @@ function ChatTextField(props: TextFieldProps) {
         >
           {<SendIcon />}
         </Button>
-      </Grid2>
     </Grid2>
   );
 }

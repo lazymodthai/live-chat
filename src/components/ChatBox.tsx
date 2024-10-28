@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useRef } from "react"
 const chatBoxStyle: SxProps = {
   backgroundColor: 'white',
   width: '100%',
-  height: '600px',  // Fixed height for the chat box
+  height: '400px',  // Fixed height for the chat box
   borderRadius: '1rem',
   padding: '1rem',
   display: 'flex',

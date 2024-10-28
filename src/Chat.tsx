@@ -52,9 +52,10 @@ function Chat() {
   },[window.innerWidth])
 
   return (
-    <Grid2 display={'flex'} justifyContent={'center'}>
-      <Grid2 container size={12} width={"50vw"}>
-        <Grid2 size={9}>
+    <Grid2 display={'flex'} justifyContent={'center'} width={'70%'} flexDirection={'column'}>
+      <Grid2 size={12} fontSize={30} paddingY={2}>Live Chat</Grid2>
+      <Grid2 container size={12} spacing={2}>
+        <Grid2 size={8} container>
           <ChatBox refresh={texts.length}>
             {texts?.map((i: ChatTextProps, index: number) => (
               <ChatText
@@ -67,8 +68,8 @@ function Chat() {
             ))}
           </ChatBox>
         </Grid2>
-        <Grid2 size={3}>UserList</Grid2>
-        <Grid2 size={9} marginTop={2} paddingRight={2}>
+        <Grid2 size={4} bgcolor={'rgb(256, 256, 256, 30%)'} borderRadius={'20px'} padding={2}>UserList</Grid2>
+        <Grid2 size={12} marginTop={2} container paddingRight={2}>
           <ChatTextField name={currentUser.name} onSend={handleSendMessage} />
         </Grid2>
       </Grid2>
