@@ -46,7 +46,7 @@ function ChatTextField(props: TextFieldProps) {
           multiline
           value={text}
           maxRows={3}
-          rows={3}
+          rows={1}
           sx={textFieldStyle}
           hiddenLabel
           onChange={(e) => setText(e.target.value)}
