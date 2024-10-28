@@ -52,8 +52,8 @@ function Chat() {
   },[window.innerWidth])
 
   return (
-    <>
-      <Grid2 container size={12} width={"50vw"} margin={"auto"}>
+    <Grid2 display={'flex'} justifyContent={'center'}>
+      <Grid2 container size={12} width={"50vw"}>
         <Grid2 size={9}>
           <ChatBox refresh={texts.length}>
             {texts?.map((i: ChatTextProps, index: number) => (
@@ -72,7 +72,7 @@ function Chat() {
           <ChatTextField name={currentUser.name} onSend={handleSendMessage} />
         </Grid2>
       </Grid2>
-    </>
+    </Grid2>
   )
 }
 
