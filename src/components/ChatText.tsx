@@ -1,11 +1,20 @@
 import { Grid2, SxProps, Typography } from "@mui/material";
 import { formatMessageTime } from "../utils/dateUtils";
+import { MessageStatus } from "../types/types";
 
 export interface ChatTextProps {
   text: string;
   type: 1 | 2;
   name: string;
   timestamp: string;
+  status?: MessageStatus;
+  isEdited?: boolean;
+  isDeleted?: boolean;
+  isPinned?: boolean;
+  reactions?: number;
+  currentUserReaction?: string;
+  onEdit?: (newContent: string) => void;
+  onDelete?: () => void;
 }
 
 const userBoxStyle: SxProps = {
