@@ -7,13 +7,14 @@ import ChatTextField from "./components/ChatTextField";
 import { Socket } from "socket.io-client";
 import { initializeSocket } from "./services/socket";
 import { IMessage, MessageStatus, MessageType } from "./types/types";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [socket, setSocket] = useState<Socket | null>(null);
   const [currentUser] = useState({
     name: "D",
-    id: "'56a8f64c-f2d3-4b5f-b647-5840024f16b8",
+    id: "56a8f64c-f2d3-4b5f-b647-5840024f16b8",
   });
   const [conversationId] = useState("e9fb8122-8792-4c63-a74f-4b96445e8363");
 
@@ -44,10 +45,10 @@ function App() {
         setMessages(prevMessages);
       });
 
-      newSocket.on("newMessage", (message: IMessage) => {
-        setMessages((prev) => [...prev, message]);
-        newSocket.emit("messageDelivered", { messageId: message.messageId });
-      });
+      // newSocket.on("newMessage", (message: IMessage) => {
+      //   setMessages((prev) => [...prev, message]);
+      //   newSocket.emit("messageDelivered", { messageId: message.messageId });
+      // });
 
       newSocket.on(
         "messageStatus",
@@ -83,7 +84,7 @@ function App() {
 
   const handleSendMessage = (text: string, name: string) => {
     if (socket && text.trim()) {
-      const clientMessageId = `temp-${Date.now()}`;
+      const clientMessageId = uuidv4();
       const now = new Date();
 
       const messageDto: Partial<IMessage> = {

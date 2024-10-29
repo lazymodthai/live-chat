@@ -1,16 +1,16 @@
 export enum MessageType {
-    TEXT = 'TEXT',
-    IMAGE = 'IMAGE',
-    FILE = 'FILE',
-    SYSTEM = 'SYSTEM'
+    TEXT = 'text',
+    IMAGE = 'image',
+    FILE = 'file',
+    SYSTEM = 'system'
 }
 
 export enum MessageStatus {
-    SENDING = 'SENDING',
-    SENT = 'SENT',
-    DELIVERED = 'DELIVERED',
-    READ = 'READ',
-    FAILED = 'FAILED'
+    SENDING = 'sending',
+    SENT = 'sent',
+    DELIVERED = 'delivered',
+    READ = 'read',
+    FAILED = 'failed'
 }
 
 export interface IMessage {
